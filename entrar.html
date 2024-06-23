@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HealthGuard</title>
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="../src/Imagens/iconVirus.ico.png"
+    />
+    <script type="module">
+      import * as login from "./scripts/login.js";
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("btnEntrar")
+          .addEventListener("click", function (evt) {
+            evt.preventDefault()
+            login.autenticarUsuario();
+          });
+      });
+    </script>
+    <link rel="stylesheet" href="styleIndex.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html"
+        ><img id="logo" src="Imagens/logoHealthGuard.png" alt="MyHealth"
+      /></a>
+    </nav>
+
+    <main>
+      <div class="container">
+        <form class="form">
+          <div class="form-input">
+            <label class="label" for="txtEmail">Email: </label>
+            <input class="input" type="email" id="txtEmail" name="email" />
+          </div>
+
+          <div class="form-input">
+            <label class="label" for="txtPassword">Senha: </label>
+            <input
+              class="input"
+              type="password"
+              id="txtPassword"
+              name="password"
+            />
+          </div>
+
+          <span id="textMessage"></span>
+
+          <div class="align-center" style="display: flex;flex-direction: column;align-items: center;">
+            <span id="txtMessage"></span>
+            <button id="btnEntrar" class="button button-green">Entrar</button>
+            <img id="loadingIcon" src="./Imagens/loading.gif"></img>
+          </div>
+
+          <div class="align-center linkRecuperar">
+            <a href="src/recuperarConta.html" id="btnEsqueci"
+              >Esqueci minha senha</a
+            >
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

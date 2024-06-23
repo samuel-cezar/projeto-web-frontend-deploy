@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HealthGuard</title>
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="../src/Imagens/iconVirus.ico.png"
+    />
+    <link rel="stylesheet" href="styleIndex.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import * as newUser from "./scripts/newUser.js";
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("btnCadastrar")
+          .addEventListener("click", function () {
+            newUser.createUser();
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html"
+        ><img id="logo" src="Imagens/logoHealthGuard.png" alt="Vacinação360"
+      /></a>
+    </nav>
+
+    <main>
+      <div class="container">
+        <form class="form">
+          <div class="form-input">
+            <label class="label" for="txtNome">Nome Completo:</label>
+            <input class="input" id="txtNome" type="text" name="nome" />
+          </div>
+
+          <div class="form-input">
+            <label class="label" for="radioGenero">Gênero: </label>
+            <input
+              class="input"
+              type="radio"
+              id="rbMasculino"
+              name="tipo"
+              value="Masculino"
+            />
+            <label>Masculino</label>
+
+            <input
+              class="input"
+              type="radio"
+              id="rbFeminino"
+              name="tipo"
+              value="Feminino"
+            />
+            <label>Feminino</label>
+          </div>
+
+          <div class="form-input">
+            <label class="label" for="dataNascimento"
+              >Data de nascimento:
+            </label>
+            <input
+              class="input"
+              type="date"
+              id="calDataNasc"
+              name="dataNascimento"
+            />
+          </div>
+
+          <div class="form-input">
+            <label class="label" for="txtEmail">Email: </label>
+            <input class="input" type="email" id="txtEmail" name="email" />
+          </div>
+
+          <div class="form-input">
+            <label class="label" for="txtPassword">Senha: </label>
+            <input
+              class="input"
+              type="password"
+              id="txtPassword"
+              name="password"
+            />
+          </div>
+
+          <div class="align-center" style="display: flex;flex-direction: column;align-items: center;">
+            <span id="txtMessage"></span>
+            <a id="btnCadastrar" class="button button-green"
+              >Cadastrar usuário</a
+            >
+            <img id="loadingIcon" src="./Imagens/loading.gif"></img>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

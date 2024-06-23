@@ -1,0 +1,304 @@
+body {
+  background: #add5d0;
+  margin: 0px;
+}
+nav {
+  background: #c1e7e3;
+  justify-content: space-between;
+  display: flex;
+  padding: 4px 30px;
+}
+#logo {
+  width: 200px;
+}
+
+#loadingIcon {
+  display: none;
+  width: 48px;
+}
+
+#txtMessage {
+  margin-top: 1em;
+  color: #ff0000;
+  font-style: italic;
+}
+
+.button {
+  background: #357960;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  padding: 5px 18px;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button-green {
+  background: #37bd6d;
+  margin-top: 20px; 
+  align-self: center; 
+  display: block; 
+}
+.button-red {
+  background: #fd7979;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 8px
+}
+.button-red:hover {
+  background: #943e3e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+.button:hover {
+  background: #20493a;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
+    0 17px 50px 0 rgba(0, 0, 0, 0.12);
+}
+h1 {  
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 76px;
+  text-align: center;
+  color: #357960;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 92.5vh;
+  justify-content: center;
+}
+.image-background {
+  background: url(Imagens/background-VACINA1.png); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 23px;
+  /* identical to box height */
+  color: #ffffff;
+  margin-right: 10px; /* margem direita para separar a label do input */
+  flex-shrink: 0; /* impede que a label encolha e mantenha seu tamanho original */
+  text-align: right; /* alinha o texto da label à direita */
+  width: 150px; /* define a largura da label */
+}
+.input {
+  font-family: "Roboto";
+  font-style: normal;
+  color: #3f92c5;
+  background: #ffffff;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 2px;
+  margin-top: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.input[type="radio"] {
+  width: 20px;
+  box-shadow: none;
+}
+.input[type="date"] {
+  width: 120px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 693px;
+}
+.form-input {
+  font-family: "Roboto";
+  font-style: normal;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.align-center {
+  align-self: center;
+}
+.align-top {
+  align-self: flex-end;
+}
+.linkRecuperar {
+  margin-top: 37px;
+}
+.buttons-nav {
+  display: flex;
+  gap: 10px;
+}
+input[type="search"] {
+  border: none;
+  background: white;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type="search"]::placeholder {
+  color: #bbb;
+}
+input[type="search"]:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+input.nosubmit {
+  border: 1px solid #555;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background: white
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat 13px center;
+}
+.inputsearch {
+  margin: 15px;
+}
+
+.container-vacinas {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 120px;
+  flex-wrap: wrap;
+}
+
+.cardvacina {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 330px;
+  height: 321px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.cardvacina a {
+  text-decoration: none;
+}
+.cardvacina h5 {
+  font-family: "Roboto";
+  font-style: normal;
+  color: #3f92c5;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  margin: 0;
+}
+
+.cardvacina p {
+  font-size: 16px;
+  color: white;
+  background: #3f92c5;
+  padding: 5px;
+}
+
+.vaxdata {
+  color: #8b8b8b;
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 10px;
+}
+
+.cardvacina img {
+  margin-bottom: 10px;
+  width: 299px;
+  height: 146px;
+}
+
+.proxvax {
+  color: #fd7979;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  align-self: end;
+  margin-right: 15px;
+}
+.button-novavax {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.popup {
+  font-family: "Roboto";
+  font-style: normal;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.popup h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.popup p {
+  margin-bottom: 20px;
+}
+
+.popup button {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.popup button#btnSim {
+  background-color: #ff8383;
+  color: #ffffff;
+}
+
+.popup button#btnCancelar {
+  background-color: #3f92c5;
+  color: #ffffff;
+}
+
+.floating-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: rgb(53, 121, 96);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  font-size: 16px;
+  text-align: center;
+}
+
+.floating-button:hover {
+  background-color: rgb(22, 55, 42);
+}

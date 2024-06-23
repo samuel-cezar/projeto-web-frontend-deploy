@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="styleIndex.css" />
+    <style>
+      .container {
+        margin-bottom: 20px;
+      }
+
+      section {
+        margin: 1em auto;
+        width: 50%;
+      }
+
+      .button-admin-cadastrar {
+        align-self: center;
+      }
+
+      #listaUsuarios {
+        margin-top: 10px;
+      }
+
+      #formCadastroUsuario {
+        display: flex;
+        flex-direction: column;
+      }
+      #formCadastroUsuario button {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="home.html">
+      <div id="backButton" class="floating-button">Voltar</div>
+    </a>
+    <main class="container">
+      <section>
+        <h2>Cadastrar Novo Usuário</h2>
+        <form id="formCadastroUsuario">
+          <div class="mb-3">
+            <label for="nomeUsuario" class="form-label"> Nome do Usuário</label>
+            <input
+              type="text"
+              class="input form-control"
+              id="nomeUsuario"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="emailUsuario" class="form-label"> Email</label>
+            <input
+              type="email"
+              class="form-control input"
+              id="emailUsuario"
+              required
+            />
+          </div>
+          <div>
+            <button type="submit" class="button button-admin-cadastrar">
+              Cadastrar
+            </button>
+            <button
+              type="button"
+              id="limparCampos"
+              class="button button-admin-cadastrar"
+            >
+              Limpar Campos
+            </button>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h2>Comandos de Administrador</h2>
+        <button type="button" id="adicionarVarios" class="button">
+          Adicionar Vários Usuários
+        </button>
+
+        <button type="button" id="excluirTodos" class="button">
+          Excluir Todos
+        </button>
+        <input
+          type="text"
+          class="input"
+          id="pesquisa"
+          placeholder="Pesquisar usuários"
+        />
+      </section>
+      <section>
+        <h2 class="button" onclick="exibirUsuarios();">Listar usuários</h2>
+        <ul id="listaUsuarios"></ul>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        document
+          .getElementById("backButton")
+          .addEventListener("click", function () {
+            window.location.href = "home.html";
+          });
+
+        const formCadastro = document.getElementById("formCadastroUsuario");
+        const adicionarVariosBtn = document.getElementById("adicionarVarios");
+        const listaUsuarios = document.getElementById("listaUsuarios");
+        const limparCamposBtn = document.getElementById("limparCampos");
+        const excluirTodosBtn = document.getElementById("excluirTodos");
+        const pesquisaInput = document.getElementById("pesquisa");
+
+        formCadastro.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const nomeUsuario = document.getElementById("nomeUsuario").value;
+          const emailUsuario = document.getElementById("emailUsuario").value;
+          const dataEnvio = new Date().toLocaleString();
+
+          let usuariosCadastrados =
+            JSON.parse(localStorage.getItem("usuarios")) || [];
+          usuariosCadastrados.push({
+            nome: nomeUsuario,
+            email: emailUsuario,
+            data: dataEnvio,
+          });
+          localStorage.setItem("usuarios", JSON.stringify(usuariosCadastrados));
+
+          exibirUsuarios();
+          formCadastro.reset();
+        });
+
+        window.exibirUsuarios = function (filtro = "") {
+          listaUsuarios.innerHTML = "";
+
+          const usuariosCadastrados =
+            JSON.parse(localStorage.getItem("usuarios")) || [];
+
+          usuariosCadastrados
+            .filter(
+              (usuario) =>
+                usuario.nome.includes(filtro) || usuario.email.includes(filtro)
+            )
+            .forEach((usuario, index) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = `Nome: ${usuario.nome} | Email: ${usuario.email} | Data: ${usuario.data}`;
+
+              const excluirBtn = document.createElement("button");
+              excluirBtn.className = "button-red";
+              excluirBtn.textContent = "Excluir";
+              excluirBtn.onclick = () => {
+                excluirUsuario(index);
+              };
+              listItem.appendChild(excluirBtn);
+
+              listaUsuarios.appendChild(listItem);
+            });
+        };
+
+        adicionarVariosBtn.addEventListener("click", () => {
+          adicionarVariosUsuarios();
+        });
+
+        function adicionarVariosUsuarios() {
+          let usuariosCadastrados =
+            JSON.parse(localStorage.getItem("usuarios")) || [];
+          const dataEnvio = new Date().toLocaleString();
+
+          const novosUsuarios = [
+            {
+              nome: "Ana Silva",
+              email: "ana.silva@exemplo.com",
+              data: dataEnvio,
+            },
+            {
+              nome: "Bruno Santos",
+              email: "bruno.santos@exemplo.com",
+              data: dataEnvio,
+            },
+            {
+              nome: "Carla Oliveira",
+              email: "carla.oliveira@exemplo.com",
+              data: dataEnvio,
+            },
+            {
+              nome: "Diego Pereira",
+              email: "diego.pereira@exemplo.com",
+              data: dataEnvio,
+            },
+            {
+              nome: "Fernanda Costa",
+              email: "fernanda.costa@exemplo.com",
+              data: dataEnvio,
+            },
+          ];
+
+          usuariosCadastrados = usuariosCadastrados.concat(novosUsuarios);
+          localStorage.setItem("usuarios", JSON.stringify(usuariosCadastrados));
+          exibirUsuarios();
+        }
+
+        function excluirUsuario(index) {
+          let usuariosCadastrados =
+            JSON.parse(localStorage.getItem("usuarios")) || [];
+          usuariosCadastrados.splice(index, 1);
+          localStorage.setItem("usuarios", JSON.stringify(usuariosCadastrados));
+          exibirUsuarios();
+        }
+
+        function excluirTodosUsuarios() {
+          localStorage.removeItem("usuarios");
+          exibirUsuarios();
+        }
+
+        limparCamposBtn.addEventListener("click", () => {
+          formCadastro.reset();
+        });
+
+        excluirTodosBtn.addEventListener("click", () => {
+          excluirTodosUsuarios();
+        });
+
+        pesquisaInput.addEventListener("input", (event) => {
+          exibirUsuarios(event.target.value);
+        });
+
+        exibirUsuarios();
+      });
+    </script>
+  </body>
+</html>

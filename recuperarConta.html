@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HealthGuard</title>
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="../src/Imagens/iconVirus.ico.png"
+    />
+    <link rel="stylesheet" href="styleIndex.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <img id="logo" src="Imagens/logoHealthGuard.png" alt="MyHealth" />
+    </nav>
+    <main>
+      <div class="container">
+        <form class="form">
+          <div class="form-input">
+            <label class="label" for="txtEmail">Email: </label>
+            <input class="input" type="email" id="txtEmail" name="email" />
+          </div>
+
+          <div class="align-center">
+            <span id="textMessage"></span>
+            <button id="btnRecuperar" class="button button-green"></button>
+              Redefinir senha
+            </button>
+          </div>
+        </form>
+      </div>
+      <script type="module" src="./scripts/recuperarSenha.js"></script>
+    </main>
+  </body>
+</html>
