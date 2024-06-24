@@ -1,7 +1,10 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
   background: #add5d0;
   margin: 0px;
-  font-family: "Roboto";
 }
 nav {
   background: #c1e7e3;
