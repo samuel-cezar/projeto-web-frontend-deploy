@@ -100,7 +100,8 @@ const cadastrarUsuarioLocalmente = () => {
       password: password,
       nome: getName(),
       genero: getGender(),
-      dataNascimento: getBirthDate()
+      dataNascimento: getBirthDate(),
+      data: new Date()
   };
 
   // Adiciona o novo usuário ao array de usuários cadastrados
